@@ -2,7 +2,9 @@ package fr.humanbooster.cap_entreprise.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +24,13 @@ public class JeuxRestController {
 		return jeuService.recupererJeux();
 	}
 	
-//	@GetMapping("jeux/{id}")
-//	public Jeu jeuGet(@PathVariable Long id) {
-//		return jeuService.recupererJeu(id);
-//	}
+	@GetMapping("jeux/{id}")
+	public Jeu jeuGet(@PathVariable final Long id) {
+		return jeuService.recupererJeu(id);
+	}
+	
+	@DeleteMapping("jeux/{id}")
+	public void jeuDelete(@PathVariable Long id) {
+		jeuService.supprimerJeu(id);
+	}
 }
