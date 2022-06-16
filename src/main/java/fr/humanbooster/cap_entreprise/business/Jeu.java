@@ -15,6 +15,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,29 +44,36 @@ public class Jeu {
 
 	private String image;
 
+	@JsonManagedReference
 	@ManyToOne
 	private Moderateur moderateur;
 
+	@JsonManagedReference
 	@NotNull
 	@ManyToOne
 	private ModeleEconomique modeleEconomique;
 
+	@JsonManagedReference
 	@NotNull
 	@ManyToMany
 	private List<Plateforme> plateformes;
 
+	@JsonManagedReference
 	@NotNull
 	@ManyToOne
 	private Editeur editeur;
 
+	@JsonManagedReference
 	@NotNull
 	@ManyToOne
 	private Genre genre;
 
+	@JsonManagedReference
 	@NotNull
 	@ManyToOne
 	private Classification classification;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "jeu", cascade = CascadeType.REMOVE)
 	private List<Avis> avis;
 

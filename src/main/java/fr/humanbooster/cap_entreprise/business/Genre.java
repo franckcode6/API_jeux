@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +30,7 @@ public class Genre {
 	@NotBlank
 	private String nom;
 
+	@JsonBackReference
 	@OneToMany(mappedBy = "genre")
 	private List<Jeu> jeux;
 

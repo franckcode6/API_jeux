@@ -1,6 +1,6 @@
 package fr.humanbooster.cap_entreprise.business;
 
-import java.util.*;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,7 +30,7 @@ public class Editeur {
 	@NotBlank
 	private String nom;
 
-	@JsonIgnore
+	@JsonBackReference
 	@OneToMany(mappedBy = "editeur")
 	private List<Jeu> jeux;
 
