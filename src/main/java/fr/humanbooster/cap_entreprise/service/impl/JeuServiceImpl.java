@@ -33,10 +33,15 @@ public class JeuServiceImpl implements JeuService {
 	}
 
 	@Override
+	public Jeu ajouterJeu(Jeu jeu) {
+		return jeuDao.save(jeu);
+	}
+
+	@Override
 	public List<Jeu> recupererJeux() {
 		return jeuDao.findAll();
 	}
-	
+
 	/**
 	 * On récupère la totalité des avis à paginer
 	 */

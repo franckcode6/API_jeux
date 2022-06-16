@@ -44,7 +44,7 @@ public class Jeu {
 
 	private String image;
 
-	@JsonManagedReference
+	@JsonIgnore
 	@ManyToOne
 	private Moderateur moderateur;
 
