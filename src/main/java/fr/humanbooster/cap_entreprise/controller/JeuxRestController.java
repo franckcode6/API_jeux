@@ -35,8 +35,8 @@ public class JeuxRestController {
 	}
 
 	// Ajouter un jour -> POST (le jour est placé dans le corps de la requête)
-	@PostMapping(value = "jeux", consumes = MediaType.APPLICATION_JSON_VALUE)
-	// @ResponseStatus(code = HttpStatus.CREATED)
+	@PostMapping(value = "jeux")
+	@ResponseStatus(code = HttpStatus.CREATED)
 	public Jeu jeuxPost(@RequestBody Jeu jeu) {
 		return jeuService.ajouterJeu(jeu);
 	}

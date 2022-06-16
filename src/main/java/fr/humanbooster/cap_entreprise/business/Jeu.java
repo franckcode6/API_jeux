@@ -16,7 +16,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,31 +43,25 @@ public class Jeu {
 
 	private String image;
 
-	@JsonIgnore
 	@ManyToOne
 	private Moderateur moderateur;
 
-	@JsonManagedReference
 	@NotNull
 	@ManyToOne
 	private ModeleEconomique modeleEconomique;
 
-	@JsonManagedReference
 	@NotNull
 	@ManyToMany
 	private List<Plateforme> plateformes;
 
-	@JsonManagedReference
 	@NotNull
 	@ManyToOne
 	private Editeur editeur;
 
-	@JsonManagedReference
 	@NotNull
 	@ManyToOne
 	private Genre genre;
 
-	@JsonManagedReference
 	@NotNull
 	@ManyToOne
 	private Classification classification;
