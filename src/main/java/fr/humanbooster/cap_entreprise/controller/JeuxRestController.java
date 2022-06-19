@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,10 +35,15 @@ public class JeuxRestController {
 		return jeuService.recupererJeu(id);
 	}
 
-	// Ajouter un jour -> POST (le jour est placé dans le corps de la requête)
 	@PostMapping(value = "jeux")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Jeu jeuxPost(@RequestBody Jeu jeu) {
+		return jeuService.ajouterJeu(jeu);
+	}
+
+	@PatchMapping(value = "jeux/{id}")
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public Jeu jeuxModify(@RequestBody Jeu jeu) {
 		return jeuService.ajouterJeu(jeu);
 	}
 
