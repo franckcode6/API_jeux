@@ -27,6 +27,11 @@ public class AvisServiceImpl implements AvisService {
 	}
 
 	@Override
+	public Avis ajouterAvis(Avis avis) {
+		return avisDao.save(avis);
+	}
+
+	@Override
 	public List<Avis> recupererAvis() {
 		return avisDao.findAll();
 	}
@@ -36,22 +41,22 @@ public class AvisServiceImpl implements AvisService {
 		return avisDao.findById(id).orElse(null);
 	}
 
-	 /**
-     * Méthode permettant de retrouver tous les avis modérés et les avis non modérés
-     * du joueur en session que l'on va paginer
-     */
-    @Override
-    public Page<Avis> recupererAvisJoueurs(String pseudoJoueur, Pageable pageable) {
-        return avisDao.findAllByModerateurIsNotNullOrJoueurPseudoContaining(pseudoJoueur, pageable);
-    }
+	/**
+	 * Méthode permettant de retrouver tous les avis modérés et les avis non modérés
+	 * du joueur en session que l'on va paginer
+	 */
+	@Override
+	public Page<Avis> recupererAvisJoueurs(String pseudoJoueur, Pageable pageable) {
+		return avisDao.findAllByModerateurIsNotNullOrJoueurPseudoContaining(pseudoJoueur, pageable);
+	}
 
-    /**
-     * On récupère les avis modérés qui seront paginés
-     */
-    @Override
-    public Page<Avis> recupererAvisModeres(Pageable pageable) {
-        return avisDao.findAllByModerateurIsNotNull(pageable);
-    }
+	/**
+	 * On récupère les avis modérés qui seront paginés
+	 */
+	@Override
+	public Page<Avis> recupererAvisModeres(Pageable pageable) {
+		return avisDao.findAllByModerateurIsNotNull(pageable);
+	}
 
 	/**
 	 * On récupère les avis non modérés qui seront paginés

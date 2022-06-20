@@ -38,13 +38,13 @@ public class Avis {
 
 	private LocalDateTime dateModeration;
 
+	@JsonIgnore
 	@ManyToOne
 	private Moderateur moderateur;
 
 	@ManyToOne
 	private Joueur joueur;
 
-	@JsonIgnore
 	@NotNull
 	@ManyToOne
 	private Jeu jeu;

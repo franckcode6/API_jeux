@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,6 +26,7 @@ public class Joueur extends Utilisateur {
 	@Past
 	private LocalDate dateDeNaissance;
 
+	@JsonBackReference
 	@OneToMany(mappedBy = "joueur")
 	private List<Avis> avis;
 

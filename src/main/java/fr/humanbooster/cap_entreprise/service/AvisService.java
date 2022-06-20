@@ -15,6 +15,8 @@ public interface AvisService {
 
 	Avis ajouterAvis(String description, LocalDateTime dateEnvoi, float note, Joueur joueur, Jeu jeu);
 
+	Avis ajouterAvis(Avis avis);
+
 	List<Avis> recupererAvis();
 
 	Avis recupererAvis(Long id);
@@ -31,4 +33,5 @@ public interface AvisService {
 			Moderateur moderateur, Joueur joueur, Jeu jeu);
 
 	void supprimerAvis(Long id);
+
 }
