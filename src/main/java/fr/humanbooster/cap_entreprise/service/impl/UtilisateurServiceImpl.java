@@ -51,13 +51,18 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	public List<Utilisateur> recupererUtilisateurs() {
 		return utilisateurDao.findAll();
 	}
-
+	
 	/**
 	 * On récupère l'utilisateur avec son pseudo et son mot de passe (connexion)
 	 */
 	@Override
 	public Utilisateur recupererUtilisateur(String pseudo, String motDePasse) {
 		return utilisateurDao.findByPseudoAndMotDePasse(pseudo, motDePasse);
+	}
+	
+	@Override
+	public Utilisateur recupererUtilisateur(String pseudo) {
+		return utilisateurDao.findByPseudo(pseudo);
 	}
 
 	@Override
@@ -69,4 +74,5 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	public void supprimerUtilisateur(Long id) {
 		utilisateurDao.deleteById(id);
 	}
+
 }

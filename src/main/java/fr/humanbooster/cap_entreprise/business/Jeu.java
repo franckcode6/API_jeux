@@ -27,76 +27,76 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Jeu {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotBlank
-	private String nom;
+    @NotBlank
+    private String nom;
 
-	@NotBlank
-	private String description;
+    @NotBlank
+    private String description;
 
-	@NotNull
-	@PastOrPresent
-	private LocalDate dateSortie;
+    @NotNull
+    @PastOrPresent
+    private LocalDate dateSortie;
 
-	private String image;
+    private String image;
 
-	@ManyToOne
-	private Moderateur moderateur;
+    @ManyToOne
+    private Moderateur moderateur;
 
-	@NotNull
-	@ManyToOne
-	private ModeleEconomique modeleEconomique;
+    @NotNull
+    @ManyToOne
+    private ModeleEconomique modeleEconomique;
 
-	@NotNull
-	@ManyToMany
-	private List<Plateforme> plateformes;
+    @NotNull
+    @ManyToMany
+    private List<Plateforme> plateformes;
 
-	@NotNull
-	@ManyToOne
-	private Editeur editeur;
+    @NotNull
+    @ManyToOne
+    private Editeur editeur;
 
-	@NotNull
-	@ManyToOne
-	private Genre genre;
+    @NotNull
+    @ManyToOne
+    private Genre genre;
 
-	@NotNull
-	@ManyToOne
-	private Classification classification;
+    @NotNull
+    @ManyToOne
+    private Classification classification;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "jeu", cascade = CascadeType.REMOVE)
-	private List<Avis> avis;
+    @JsonIgnore
+    @OneToMany(mappedBy = "jeu", cascade = CascadeType.REMOVE)
+    private List<Avis> avis;
 
-	public Jeu() {
-		this.dateSortie = LocalDate.now();
-	}
+    public Jeu() {
+        this.dateSortie = LocalDate.now();
+    }
 
-	public Jeu(String nom, String description, LocalDate dateSortie, String image, Moderateur moderateur,
-			ModeleEconomique modeleEconomique, List<Plateforme> plateformes, Editeur editeur, Genre genre,
-			Classification classification) {
-		super();
-		this.nom = nom;
-		this.description = description;
-		this.dateSortie = dateSortie;
-		this.image = image;
-		this.moderateur = moderateur;
-		this.modeleEconomique = modeleEconomique;
-		this.plateformes = plateformes;
-		this.editeur = editeur;
-		this.genre = genre;
-		this.classification = classification;
+    public Jeu(String nom, String description, LocalDate dateSortie, String image, Moderateur moderateur,
+               ModeleEconomique modeleEconomique, List<Plateforme> plateformes, Editeur editeur, Genre genre,
+               Classification classification) {
+        super();
+        this.nom = nom;
+        this.description = description;
+        this.dateSortie = dateSortie;
+        this.image = image;
+        this.moderateur = moderateur;
+        this.modeleEconomique = modeleEconomique;
+        this.plateformes = plateformes;
+        this.editeur = editeur;
+        this.genre = genre;
+        this.classification = classification;
 
-	}
+    }
 
-	@Override
-	public String toString() {
-		return "Jeu [id=" + id + ", nom=" + nom + ", description=" + description + ", dateSortie=" + dateSortie
-				+ ", Image=" + image + ", moderateur=" + getModerateur().getPseudo() + ", modeleEconomique="
-				+ getModeleEconomique().getNom() + ", editeur=" + getEditeur().getNom() + ", genre=" + getGenre()
-				+ ", classification=" + getClassification().getNom() + "]";
-	}
+    @Override
+    public String toString() {
+        return "Jeu [id=" + id + ", nom=" + nom + ", description=" + description + ", dateSortie=" + dateSortie
+                + ", Image=" + image + ", moderateur=" + getModerateur().getPseudo() + ", modeleEconomique="
+                + getModeleEconomique().getNom() + ", editeur=" + getEditeur().getNom() + ", genre=" + getGenre()
+                + ", classification=" + getClassification().getNom() + "]";
+    }
 
 }

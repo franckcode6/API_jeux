@@ -54,7 +54,7 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 	private List<Moderateur> moderateurs;
 	private List<Plateforme> plateformes;
 	
-	private static Random random = new Random();
+	private static final Random random = new Random();
 
 	@Override
 	public void run(String... args) throws Exception {

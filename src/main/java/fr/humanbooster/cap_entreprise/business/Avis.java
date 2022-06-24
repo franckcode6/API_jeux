@@ -24,43 +24,43 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Avis {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotBlank
-	private String description;
+    @NotBlank
+    private String description;
 
-	private LocalDateTime dateEnvoi;
+    private LocalDateTime dateEnvoi;
 
-	@NotNull
-	private float note;
+    @NotNull
+    private float note;
 
-	private LocalDateTime dateModeration;
+    private LocalDateTime dateModeration;
 
-	@JsonIgnore
-	@ManyToOne
-	private Moderateur moderateur;
+    @JsonIgnore
+    @ManyToOne
+    private Moderateur moderateur;
 
-	@ManyToOne
-	private Joueur joueur;
+    @ManyToOne
+    private Joueur joueur;
 
-	@NotNull
-	@ManyToOne
-	private Jeu jeu;
+    @NotNull
+    @ManyToOne
+    private Jeu jeu;
 
-	public Avis(String description, LocalDateTime dateEnvoi, float note, Joueur joueur, Jeu jeu) {
-		super();
-		this.description = description;
-		this.dateEnvoi = dateEnvoi;
-		this.note = note;
-		this.joueur = joueur;
-		this.jeu = jeu;
-	}
+    public Avis(String description, LocalDateTime dateEnvoi, float note, Joueur joueur, Jeu jeu) {
+        super();
+        this.description = description;
+        this.dateEnvoi = dateEnvoi;
+        this.note = note;
+        this.joueur = joueur;
+        this.jeu = jeu;
+    }
 
-	@Override
-	public String toString() {
-		return dateEnvoi.getDayOfMonth() + "/" + dateEnvoi.getMonthValue() + "/" + dateEnvoi.getYear();
-	}
+    @Override
+    public String toString() {
+        return dateEnvoi.getDayOfMonth() + "/" + dateEnvoi.getMonthValue() + "/" + dateEnvoi.getYear();
+    }
 
 }

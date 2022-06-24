@@ -21,10 +21,13 @@ public interface UtilisateurService {
 
 	List<Utilisateur> recupererUtilisateurs();
 
+	Utilisateur recupererUtilisateur(String pseudo);
+	
 	Utilisateur recupererUtilisateur(String pseudo, String motDePasse);
 
 	Utilisateur recupererUtilisateur(Long id);
 
 	void supprimerUtilisateur(Long id);
+
 
 }

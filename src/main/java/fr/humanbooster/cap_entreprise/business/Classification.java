@@ -23,25 +23,25 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Classification {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotBlank
-	private String nom;
+    @NotBlank
+    private String nom;
 
-	@JsonBackReference
-	@OneToMany(mappedBy = "classification")
-	private List<Jeu> jeux;
+    @JsonBackReference
+    @OneToMany(mappedBy = "classification")
+    private List<Jeu> jeux;
 
-	public Classification(String nom) {
-		super();
-		this.nom = nom;
-	}
+    public Classification(String nom) {
+        super();
+        this.nom = nom;
+    }
 
-	@Override
-	public String toString() {
-		return nom;
-	}
+    @Override
+    public String toString() {
+        return nom;
+    }
 
 }

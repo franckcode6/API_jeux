@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -21,6 +22,7 @@ import fr.humanbooster.cap_entreprise.service.UtilisateurService;
 import lombok.AllArgsConstructor;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 @AllArgsConstructor
 public class UtilisateurRestController {
@@ -45,6 +47,11 @@ public class UtilisateurRestController {
 	@GetMapping("utilisateurs/{id}")
 	public Utilisateur utilisateurGetById(@PathVariable final Long id) {
 		return utilisateurService.recupererUtilisateur(id);
+	}
+	
+	@GetMapping("utilisateurs/pseudo/{pseudo}")
+	public Utilisateur utilisateurGetByPseudo(@PathVariable final String pseudo) {
+		return utilisateurService.recupererUtilisateur(pseudo);
 	}
 
 	@PostMapping(value = "joueurs")

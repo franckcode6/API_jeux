@@ -9,4 +9,6 @@ public interface UtilisateurDao extends JpaRepository<Utilisateur, Long> {
 	// requète nous permettant de retrouver un utilisateur grâce à
 	// son pseudo et son mot de passe
 	Utilisateur findByPseudoAndMotDePasse(String pseudo, String motDePasse);
+
+	Utilisateur findByPseudo(String pseudo);
 }
